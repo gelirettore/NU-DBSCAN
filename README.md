@@ -18,7 +18,7 @@ Examples of use & Results
 ---
 
 ```python
-    # Dataset composed of 2 non circular clusters of 50 points.
+    # Dataset composed of 2 non-circular clusters of 50 points.
     centers = [[5, 6], [5, 4]]
     X = np.array([
         [np.random.uniform(c[0] - 4, c[0] + 4),
