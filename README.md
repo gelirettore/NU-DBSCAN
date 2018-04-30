@@ -1,14 +1,11 @@
 # NU-DBSCAN
 
-**DBSCAN implementation for Non Uniforme cluster density.**
+**DBSCAN implementation for Non Uniform cluster density.**
 
-This DBSCAN implementation let you choose an epsilon value for each dimension of your
-dataset.
+This DBSCAN implementation lets you set an epsilon as a vector
+and so define a reachability value for each dimension of the dataset.
 
-It's usefull in case of your cluster have the same density but
-points are non-uniform spreaded inside this cluster.
-
-See the examples of use for more explenations.
+The only difference from the classic DSCAN is the way neighbors points are found.
 
 Dependencies
 ---
@@ -17,11 +14,11 @@ Dependencies
     pip install numpy
 ```
 
-Examples of use
+Examples of use & Results
 ---
 
 ```python
-    # Dataset composed of 2 cluster of 50 points
+    # Dataset composed of 2 non circular clusters of 50 points.
     centers = [[5, 6], [5, 4]]
     X = np.array([
         [np.random.uniform(c[0] - 4, c[0] + 4),
@@ -34,13 +31,13 @@ Examples of use
 
 
 ```python
-    # Best result get with DBSCAN
+    # Best result get with DBSCAN.
     clusterer = DBSCAN(eps=1, min_samples=10).fit(X)
 ```
 ![Dataset](/img/dbscan.png)
 
 ```python
-    # Result get with NU-DBSCAN
-    clusterer = DBSCAN(eps=(4, .5), min_samples=10).fit(X)
+    # Result get with NU-DBSCAN.
+    clusterer = NUDBSCAN(eps=(4, .5), min_samples=10).fit(X)
 ```
 ![Dataset](/img/nudbscan.png)
